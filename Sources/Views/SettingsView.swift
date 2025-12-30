@@ -110,7 +110,7 @@ struct SettingsView: View {
                 let payload = try exportImportManager.importData(from: url)
                 settingsStore.settings = payload.settings
                 settingsStore.persist()
-                historyStore.entries = payload.history
+                historyStore.replaceAll(with: payload.history)
                 message = "Import complete"
             } catch {
                 message = "Import failed: \(error.localizedDescription)"

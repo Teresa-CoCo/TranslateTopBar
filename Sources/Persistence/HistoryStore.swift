@@ -61,6 +61,11 @@ final class HistoryStore: ObservableObject {
         return entries.filter { $0.sourceText.localizedCaseInsensitiveContains(query) || $0.translatedText.localizedCaseInsensitiveContains(query) }
     }
 
+    func replaceAll(with newEntries: [HistoryEntry]) {
+        entries = newEntries
+        save()
+    }
+
     private func load() {
         guard FileManager.default.fileExists(atPath: fileURL.path) else { return }
         do {
