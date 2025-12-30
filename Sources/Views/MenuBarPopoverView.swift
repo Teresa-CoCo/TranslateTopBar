@@ -12,6 +12,7 @@ struct MenuBarPopoverView: View {
     @State private var direction: TranslationDirection = .auto
     @State private var selectedModel: String = ""
     @State private var isCopyFlashVisible = false
+    @FocusState private var isInputFocused: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -28,9 +29,11 @@ struct MenuBarPopoverView: View {
             TextField("Type Chinese or English", text: $inputText, axis: .vertical)
                 .textFieldStyle(.roundedBorder)
                 .lineLimit(3...6)
+                .focused($isInputFocused)
                 .onAppear {
                     direction = settingsStore.settings.languageDirection
                     selectedModel = settingsStore.settings.lastUsedModel ?? settingsStore.settings.defaultModel
+                    isInputFocused = true
                 }
 
             HStack {

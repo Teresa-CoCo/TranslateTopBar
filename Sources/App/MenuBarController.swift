@@ -29,6 +29,7 @@ final class MenuBarController: NSObject, NSPopoverDelegate {
 
     func showPopover() {
         guard let button = statusItem.button else { return }
+        NSApp.activate(ignoringOtherApps: true)
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
         startEventMonitor()
     }
