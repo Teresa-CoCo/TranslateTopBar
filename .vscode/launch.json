@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:TranslateTopBar}",
+            "name": "Debug TranslateTopBarApp",
+            "target": "TranslateTopBarApp",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug TranslateTopBarApp"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:TranslateTopBar}",
+            "name": "Release TranslateTopBarApp",
+            "target": "TranslateTopBarApp",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release TranslateTopBarApp"
+        }
+    ]
+}

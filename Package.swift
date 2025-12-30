@@ -7,10 +7,10 @@ let package = Package(
         .macOS(.v13)
     ],
     products: [
-        .executable(name: "TranslateTopBarApp", targets: ["TranslateTopBarApp"])
+        .library(name: "TranslateTopBar", targets: ["TranslateTopBarApp"])
     ],
     targets: [
-        .executableTarget(
+        .target(
             name: "TranslateTopBarApp",
             path: "Sources"
         )
