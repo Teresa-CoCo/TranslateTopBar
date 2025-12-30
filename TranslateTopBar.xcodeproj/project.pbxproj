@@ -18,7 +18,6 @@ B1A0001120D9B20000A1E001 /* MenuBarPopoverView.swift in Sources */ = {isa = PBXB
 B1A0001320D9B20000A1E001 /* MainWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0001220D9B20000A1E001 /* MainWindowView.swift */; };
 B1A0001520D9B20000A1E001 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0001420D9B20000A1E001 /* HistoryView.swift */; };
 B1A0001720D9B20000A1E001 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A0001620D9B20000A1E001 /* SettingsView.swift */; };
-B1A0001920D9B20000A1E001 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1A0001820D9B20000A1E001 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,7 +133,6 @@ B1A002120D9B30000A1E001 /* Resources */ = {
 isa = PBXResourcesBuildPhase;
 buildActionMask = 2147483647;
 files = (
-B1A0001920D9B20000A1E001 /* Info.plist in Resources */,
 );
 runOnlyForDeploymentPostprocessing = 0;
 };
