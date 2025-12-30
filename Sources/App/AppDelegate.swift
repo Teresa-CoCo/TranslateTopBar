@@ -7,6 +7,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     private var mainWindow: NSWindow?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Set activation policy to regular to show dock icon for accessing main window
+        NSApp.setActivationPolicy(.regular)
+        
         let settingsStore = SettingsStore()
         let historyStore = HistoryStore()
         let openRouterClient = OpenRouterClient()
@@ -27,7 +30,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.setFrameAutosaveName("MainWindow")
         window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        window.title = "TranslateTopBar"
+        // Don't show the window automatically on launch
         self.mainWindow = window
 
         menuBarController = MenuBarController(
@@ -36,7 +40,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             openRouterClient: openRouterClient,
             modelCache: modelCache
         )
-        menuBarController?.showPopover()
+        
+        // Close any automatically created windows from WindowGroup after a brief delay
+        // This ensures our main window is created first
+        DispatchQueue.main.async {
+            NSApp.windows.forEach { win in
+                if win !== window && win.title.isEmpty {
+                    win.close()
+                }
+            }
+        }
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
